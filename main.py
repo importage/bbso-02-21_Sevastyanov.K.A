@@ -1,7 +1,8 @@
 import os
 import telebot
 from telebot import types
-
+import time
+from threading import Thread
 
 
 bot = telebot.TeleBot('5807437640:AAEO4V6Nva895NVkw7xdIejK2WV9BucSUJw')
@@ -15,10 +16,15 @@ def start_main(message):
         markup.add(item_bj, item_roulette, item_rus_roulette)
         bot.send_message(message.from_user.id, 'Время играть по крупному в', reply_markup=markup)
     elif message.text == 'Рулетка':
-        exec(open("roulette.py").read())
-    elif message.text == 'Черный Джек':
-        exec(open("blackjack_bot.py").read())
-    elif message.text == 'Русская рулеточка':
-        exec(open("rus_roulette_bot.py").read())
+        exec(open("./roulette.py").read())
 
-bot.polling(none_stop=True, interval=0)
+    elif message.text == 'Черный Джек':
+        exec(open("./blackjack_bot.py").read())
+
+    elif message.text == 'Русская рулеточка':
+        exec(open("./rus_roulette_bot.py").read())
+
+
+# bot.polling(none_stop=True, interval=0)
+if __name__ == '__main__':
+    bot.polling(none_stop=True)
