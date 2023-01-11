@@ -2,8 +2,8 @@ from os import stat
 import telebot
 import random
 from telebot import types
+from main import bot
 
-bot = telebot.TeleBot('5807437640:AAEO4V6Nva895NVkw7xdIejK2WV9BucSUJw')
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11] * 4 + [10] * 12
 random.shuffle(cards)
 
@@ -23,7 +23,7 @@ def get_text_messages(message):
     games = str(stats['games'])
     kd = str(stats['kd'])
 
-    if message.text == '/start':
+    if message.text == 'Черный Джек':
         set_default_packs()
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         hit = types.KeyboardButton("Начать игру")
@@ -126,8 +126,7 @@ def get_cards_main():
 
 def get_cards_croupier():
     global packs
-    # if packs['croupier'] < 21 and packs['croupier'] < 20 and packs['croupier'] < 19 and packs['croupier'] < 18 and \
-    #         packs['croupier'] < 17:
+
     if packs['croupier'] <= 16:
         packs['croupier'] += cards.pop()
     return
@@ -168,3 +167,4 @@ def get_winner():
 
 
 bot.polling(none_stop=True, interval=0)
+

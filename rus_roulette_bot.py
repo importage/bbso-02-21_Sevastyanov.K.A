@@ -2,8 +2,8 @@ import random
 import telebot
 from telebot import types
 
-
-bot = telebot.TeleBot('5807437640:AAEO4V6Nva895NVkw7xdIejK2WV9BucSUJw')
+import subprocess
+from main import bot
 lvl = 1
 barrel = [1, 2, 3, 4, 5, 6]
 loaded_barrel = []
@@ -16,7 +16,7 @@ def start(message):
     global lvl
 
 
-    if message.text == '/start':
+    if message.text == 'Русская рулеточка':
         set_default_values()
         markup_start = types.ReplyKeyboardMarkup(resize_keyboard=True)
         item_start = types.KeyboardButton('Начать игру!')
@@ -45,8 +45,12 @@ def start(message):
     elif message.text == 'Крутить больше некому':
         markup_start = types.ReplyKeyboardMarkup(resize_keyboard=True)
         item_start = types.KeyboardButton('/start')
-        markup_start.add(item_start)
+        item_stop = types.KeyboardButton('Хватит')
+        markup_start.add(item_start, item_stop)
         bot.send_message(message.from_user.id, 'А может еще по одной?', reply_markup=markup_start)
+
+    elif message.text == 'Хватит':
+        subprocess.call('main.py')
 
 
 

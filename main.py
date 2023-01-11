@@ -1,17 +1,24 @@
-import bj
-import roulette
-import rus_roulette
+import os
+import telebot
+from telebot import types
 
 
-print('Welcome to console Casino!')
-while True:
-    t = int(input('1 - Roulette, 2 - blackJack, 3 - Russian Rouletter, 4 - quit: '))
-    if t == 1:
-        roulette.game()
-    elif t == 2:
-        g = bj.Game()
-        g.play()
-    elif t == 3:
-        rus_roulette.start()
-    elif t == 4:
-        break
+
+bot = telebot.TeleBot('5807437640:AAEO4V6Nva895NVkw7xdIejK2WV9BucSUJw')
+@bot.message_handler(content_types=['text'])
+def start_main(message):
+    if message.text == '/start':
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        item_bj = types.KeyboardButton('Черный Джек')
+        item_roulette = types.KeyboardButton('Рулетка')
+        item_rus_roulette = types.KeyboardButton('Русская рулеточка')
+        markup.add(item_bj, item_roulette, item_rus_roulette)
+        bot.send_message(message.from_user.id, 'Время играть по крупному в', reply_markup=markup)
+    elif message.text == 'Рулетка':
+        exec(open("roulette.py").read())
+    elif message.text == 'Черный Джек':
+        exec(open("blackjack_bot.py").read())
+    elif message.text == 'Русская рулеточка':
+        exec(open("rus_roulette_bot.py").read())
+
+bot.polling(none_stop=True, interval=0)

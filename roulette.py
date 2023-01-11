@@ -1,9 +1,7 @@
 import random
 import telebot
 from telebot import types
-import main
-
-bot = telebot.TeleBot('5807437640:AAEO4V6Nva895NVkw7xdIejK2WV9BucSUJw')
+from main import bot
 
 wins = 0
 looses = 0
@@ -17,7 +15,7 @@ def start(message):
     global bet
     global num
 
-    if message.text == '/start':
+    if message.text == 'Рулетка':
         set_default_values()
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         item_start = types.KeyboardButton('Начать игру!')
