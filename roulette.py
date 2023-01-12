@@ -1,8 +1,8 @@
 import random
 import telebot
 from telebot import types
-from main import bot
 
+bot = telebot.TeleBot('5805755420:AAGj9XSsRq8XlbE-yfO01mj7zz5AjYbb2vY')
 wins = 0
 looses = 0
 num = None
@@ -114,6 +114,8 @@ def is_winner():
         looses += 1
         return False
 
-bot.polling(none_stop=True, interval=0)
+
+if __name__ == '__main__':
+    bot.polling(none_stop=True, interval=0)
 
 

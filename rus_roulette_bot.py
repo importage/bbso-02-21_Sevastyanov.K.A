@@ -3,7 +3,7 @@ import telebot
 from telebot import types
 
 import subprocess
-from main import bot
+bot = telebot.TeleBot('5805755420:AAGj9XSsRq8XlbE-yfO01mj7zz5AjYbb2vY')
 lvl = 1
 barrel = [1, 2, 3, 4, 5, 6]
 loaded_barrel = []
@@ -49,8 +49,7 @@ def start(message):
         markup_start.add(item_start, item_stop)
         bot.send_message(message.from_user.id, 'А может еще по одной?', reply_markup=markup_start)
 
-    elif message.text == 'Хватит':
-        subprocess.call('main.py')
+
 
 
 
@@ -110,4 +109,5 @@ def is_alive():
         return True
     return False
 
-bot.polling(non_stop=True, interval=0)
+if __name__ == '__main__':
+    bot.polling(none_stop=True, interval=0)

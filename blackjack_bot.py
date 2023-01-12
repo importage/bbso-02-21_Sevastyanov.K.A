@@ -2,7 +2,7 @@ from os import stat
 import telebot
 import random
 from telebot import types
-from main import bot
+bot = telebot.TeleBot('5807437640:AAEO4V6Nva895NVkw7xdIejK2WV9BucSUJw')
 
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11] * 4 + [10] * 12
 random.shuffle(cards)
@@ -166,5 +166,6 @@ def get_winner():
     return
 
 
-bot.polling(none_stop=True, interval=0)
+if __name__ == '__main__':
+    bot.polling(none_stop=True, interval=0)
 
