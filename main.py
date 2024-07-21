@@ -6,7 +6,7 @@ from threading import Thread
 import sqlite3
 
 
-bot = telebot.TeleBot('5807437640:AAEO4V6Nva895NVkw7xdIejK2WV9BucSUJw')
+bot = telebot.TeleBot('code_to_bot')
 conn = sqlite3.connect('db/test_db.db', check_same_thread=False)
 cursor = conn.cursor()
 
