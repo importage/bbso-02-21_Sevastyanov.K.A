@@ -2,7 +2,7 @@ from os import stat
 import telebot
 import random
 from telebot import types
-bot = telebot.TeleBot('5807437640:AAEO4V6Nva895NVkw7xdIejK2WV9BucSUJw')
+bot = telebot.TeleBot('code_to_bot')
 
 cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11] * 4 + [10] * 12
 random.shuffle(cards)
