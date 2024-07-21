@@ -2,7 +2,7 @@ import random
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot('5805755420:AAGj9XSsRq8XlbE-yfO01mj7zz5AjYbb2vY')
+bot = telebot.TeleBot('code_to_bot')
 wins = 0
 looses = 0
 num = None
