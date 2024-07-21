@@ -3,7 +3,7 @@ import telebot
 from telebot import types
 
 import subprocess
-bot = telebot.TeleBot('5805755420:AAGj9XSsRq8XlbE-yfO01mj7zz5AjYbb2vY')
+bot = telebot.TeleBot('code_to_bot')
 lvl = 1
 barrel = [1, 2, 3, 4, 5, 6]
 loaded_barrel = []
